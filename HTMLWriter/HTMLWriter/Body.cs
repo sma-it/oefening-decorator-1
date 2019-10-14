@@ -4,8 +4,8 @@ using System.Text;
 
 namespace HTMLWriter
 {
-    class Body : HTMLWrapper
+    class Body : HTMLContainer
     {
-        public Body(IElement wrappedObject) : base("body", wrappedObject) { }
+        public Body(List<IElement> wrappedObjects) : base("body", wrappedObjects) { }
     }
 }
