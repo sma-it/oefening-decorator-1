@@ -9,8 +9,13 @@ namespace HTMLWriter
         {
             IElement output = null;
 
-            output = new Div(
-                new Paragraph("Hello World")
+            output = new Html(
+                "My First Page",
+                new Body(
+                    new Div(
+                        new Paragraph("Hello World")
+                    )
+                )
             );
 
             // ***************
