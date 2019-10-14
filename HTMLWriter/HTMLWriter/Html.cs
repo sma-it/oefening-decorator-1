@@ -8,7 +8,7 @@ namespace HTMLWriter
     {
         string title;
 
-        public Html(string title, IElement wrappedObject) : base("html", wrappedObject) {
+        public Html(string title, IElement child) : base("html", child) {
             this.title = title;
         }
 
@@ -20,7 +20,7 @@ namespace HTMLWriter
             output.Add(Utils.GetTabs(tabIndex) + "\t<title>" + title + "</title>");
             output.Add(Utils.GetTabs(tabIndex) + "</head>");
 
-            WrappedObject.RenderContent(tabIndex + 1, output);
+            Child.RenderContent(tabIndex + 1, output);
 
             output.Add(Utils.GetTabs(tabIndex) + "</html>");
         }

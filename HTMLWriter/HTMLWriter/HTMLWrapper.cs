@@ -9,19 +9,19 @@ namespace HTMLWriter
         string tag;
         public string Tag => tag;
 
-        IElement wrappedObject;
-        public IElement WrappedObject => wrappedObject;
+        IElement child;
+        public IElement Child => child;
 
-        public HTMLWrapper(string tag, IElement wrappedObject)
+        public HTMLWrapper(string tag, IElement child)
         {
             this.tag = tag;
-            this.wrappedObject = wrappedObject;
+            this.child = child;
         }
 
         public virtual void RenderContent(int tabIndex, List<string> output)
         {
             output.Add(Utils.GetTabs(tabIndex) + "<" + Tag + ">");
-            WrappedObject.RenderContent(tabIndex + 1, output);
+            Child.RenderContent(tabIndex + 1, output);
             output.Add(Utils.GetTabs(tabIndex) + "</" + Tag + ">");
         }
     }

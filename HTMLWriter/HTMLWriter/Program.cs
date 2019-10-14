@@ -12,18 +12,22 @@ namespace HTMLWriter
             IElement nonsense = new Paragraph("Epsum factorial non deposit quid pro quo hic escorol. Olypian quarrels et gorilla congolium sic ad nauseum. Souvlaki ignitus carborundum e pluribus unum. Defacto lingo est igpay atinlay. Marquee selectus non provisio incongruous feline nolo contendre. Gratuitous octopus niacin, sodium glutimate. Quote meon an estimate et non interruptus stadium.");
 
             output = new Html(
-                "My First Page",
-                new Body(
-                    // you can add lists with contents like this, but it's also posible to create a list first and insert it here
-                    new List<IElement>() {
-                        new Heading1("My First Page!"),
+                title: "My First Page",
+                child: new Body(
+                    foreground: "#FF0000",
+                    background: "#000000",
+
+                    children: new List<IElement>() {
+                        new Heading1(content: "My First Page!"),
                         nonsense,
                         nonsense,
+
                         new Div(
-                            new Paragraph("This is the end.")
+                            foreground: "white",
+                            background: "#00BB00",
+                            child: new Paragraph(content: "This is the end.")
                         )
                     }
-                     
                 )
             );
 

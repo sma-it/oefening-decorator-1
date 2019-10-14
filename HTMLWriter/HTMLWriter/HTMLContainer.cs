@@ -9,20 +9,20 @@ namespace HTMLWriter
         string tag;
         public string Tag => tag;
 
-        List<IElement> wrappedObjects;
-        public List<IElement> WrappedObjects => wrappedObjects;
+        List<IElement> children;
+        public List<IElement> Children => children;
 
-        public HTMLContainer(string tag, List<IElement> wrappedObjects)
+        public HTMLContainer(string tag, List<IElement> children)
         {
             this.tag = tag;
-            this.wrappedObjects = wrappedObjects;
+            this.children = children;
         }
 
         public virtual void RenderContent(int tabIndex, List<string> output)
         {
             output.Add(Utils.GetTabs(tabIndex) + "<" + Tag + ">");
 
-            WrappedObjects.ForEach(obj => obj.RenderContent(tabIndex + 1, output));
+            Children.ForEach(obj => obj.RenderContent(tabIndex + 1, output));
 
             output.Add(Utils.GetTabs(tabIndex) + "</" + Tag + ">");
         }
